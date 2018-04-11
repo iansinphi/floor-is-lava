@@ -21,6 +21,7 @@ private:
 	// which direction is the player currently moving in
 	bool leftIsPressed;
 	bool rightIsPressed;
+	bool spaceIsPressed;
 
 	// Player's speed in pixels/second
 	float speed;
@@ -35,11 +36,13 @@ public:
 	// move Player
 	void moveLeft();
 	void moveRight();
+	void startJump();
 
 	// Stop Player's movement
 	void stopLeft();
 	void stopRight();
-
+	void endJump();
+	
 	// called every frame
 	void update(float);
 };
