@@ -13,6 +13,9 @@ Player::Player() {
 	// set Player's starting position
 	position.x = 500;
 	position.y = 500;
+	velocityX = 4.0;
+	velocityY = 0.0
+	gravity = 0.5
 }
 
 
@@ -26,6 +29,17 @@ void Player::moveLeft() {
 
 void Player::moveRight() {
 	rightIsPressed = true;
+}
+
+void Player::startJump()	{
+	spaceIsPressed = true;
+	velocityY = -12.0;
+}
+
+void endJump()		{
+	spaceIsPressed = false;
+	if(velocityY < -6.0)
+		velocity = -6.0;
 }
 
 void Player::stopLeft() {
@@ -46,7 +60,11 @@ void Player::update(float timeDelta) {
 	if (leftIsPressed) {
 		position.x -= speed * timeDelta;
 	}
-
+	if (spaceIsPressed) {
+		position.x += velocityX * timeDelta;
+		position.y += velocityY * timeDelta;
+		velocityY += gravity * timeDelta;
+	}
 	// move Player sprite to new position
 	sprite.setPosition(position);
 }
