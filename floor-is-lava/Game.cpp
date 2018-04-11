@@ -62,7 +62,13 @@ void Game::input() {
 	else {
 		player.stopRight();
 	}
-
+	
+	if (Keyboard::isKeyPressed(Keyboard::Space)) {
+		player.startJump();
+	}
+	else {
+		player.endJump();
+	}
 }
 
 
