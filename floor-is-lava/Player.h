@@ -13,6 +13,7 @@ class Player
 private:
 	// Player's x, y position
 	Vector2f position;
+	Vector2f velocity;
 
 	// Player's texture and sprite
 	Sprite sprite;
@@ -25,6 +26,7 @@ private:
 
 	// Player's speed in pixels/second
 	float speed;
+	float gravity;
 
 public:
 	// constructor
