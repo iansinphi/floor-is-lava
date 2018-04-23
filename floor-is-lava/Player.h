@@ -17,7 +17,6 @@ private:
 
 	// Player's texture and sprite
 	Sprite sprite;
-	Texture texture;
 
 	// which direction is the player currently moving in
 	bool leftIsPressed;
@@ -30,10 +29,13 @@ private:
 
 public:
 	// constructor
-	Player();
+	Player(Sprite);
 
 	// retreive Player's sprite
 	Sprite getSprite();
+
+	// get Player's current position
+	Vector2f getPosition();
 
 	// move Player
 	void moveLeft();
@@ -46,5 +48,6 @@ public:
 	void endJump();
 	
 	// called every frame
+	void input();
 	void update(float);
 };
